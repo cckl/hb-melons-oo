@@ -46,15 +46,14 @@ class InternationalMelonOrder(AbstractMelonOrder):
     def get_total(self):
         initial_total = super().get_total()
 
-        if self.qty < 10:
-            return initial_total + 3
-        else: 
-            return initial_total
+        return initial_total + 3 if self.qty < 10 else initial_total
 
     def get_country_code(self):
         """Return the country code."""
 
         return self.country_code
+
+
 
 class GovernmentMelonOrder(AbstractMelonOrder):
     order_type = "government"
